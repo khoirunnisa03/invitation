@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 <title>The Wedding Of Nisa & Oki</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -181,6 +182,59 @@ body {
         font-family: 'Ribeye';
         font-size: 13px;
     }
+}
+
+@keyframes halamanMuncul {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Memulai dari posisi 30px lebih bawah */
+    filter: blur(5px);           /* Efek blur samar di awal agar lebih estetik */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Kembali ke posisi asli */
+    filter: blur(0);             /* Blur hilang sempurna */
+  }
+}
+
+/* 2. Pasang animasi pada kontainer utama */
+.animasi-halaman {
+  animation: halamanMuncul 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  /* 
+     - 1.2s: Durasi animasi berjalan selama 1.2 detik
+     - cubic-bezier: Membuat efek gerakan melambat di akhir secara sangat halus
+     - forwards: Menjaga halaman tetap tampil utuh setelah animasi selesai
+  */
+}
+
+/* 3. (Opsional) Berikan delay agar teks Arab muncul belakangan */
+.subtitle {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
+}
+ .wedding {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
+}
+.nama {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
+}
+.save {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
+}
+.dear {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
+}
+.guest {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
+}
+.btn-open {
+  opacity: 0; /* Sembunyikan dulu di awal */
+  animation: halamanMuncul 1s ease-out 0.5s forwards; /* 0.5s adalah delay (waktu tunggu) */
 }
 </style>
 </head>
