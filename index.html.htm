@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wedding Of Nisa & Oki</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cover {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        url('icover.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 25px;
+}
+
+.content {
+    width: 100%;
+    max-width: 500px;
+}
+.cover-wrapper {
+  position: relative;
+  display: inline-block; /* Agar lebar kontainer mengikuti ukuran gambar bingkai */
+}
+
+.gambar-bingkai {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.foto-oval {
+  position: absolute;
+  
+  /* 1. Atur posisi koordinat agar pas di tengah-tengah lubang bingkai */
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); /* Trik untuk membuat posisi benar-benar center */
+  
+  /* 2. Atur ukuran foto agar sesuai dengan area lubang bingkai */
+  width: 180px;  /* Sesuaikan lebar ini dengan lubang bingkai Anda */
+  height: 240px; /* Sesuaikan tinggi ini agar bentuknya lonjong ke bawah (oval) */
+  
+  /* 3. Potong foto menjadi bentuk oval sempurna */
+  border-radius: 50%;
+  object-fit: cover;  /* Menjaga foto tidak gepeng/terdistorsi saat ukurannya disesuaikan */
+  
+  /* 4. Letakkan foto di lapisan bawah bingkai jika bagian tengah bingkai Anda transparan, 
+        atau biarkan menumpuk di atas jika bingkai bagian dalam berwarna putih solid */
+  z-index: 1; 
+}
+
+.subtitle {
+    font-family: "Amiri", "Traditional Arabic", serif;
+    margin-bottom: 20px;
+    color: #0d3316;
+}
+
+.nama {
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    margin-bottom: 380px;
+    color: #0d3316;
+    white-space: nowrap;
+    word-spacing: 70px; 
+}
+
+.wedding {
+    font-family: 'Lora', cursive;
+    font-weight: normal;
+    margin-bottom: 15px;
+    color: #0d3316;
+}
+.save {
+    font-family: 'Ribeye';
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    color: #0d3316;
+}
+.dear {
+    font-family: 'Ribeye', cursive;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    color: #ede4db;
+}
+
+.guest {
+    font-family: 'Ribeye', cursive;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #ede4db;
+}
+
+.btn-open {
+    display: inline-block;
+    padding: 13px 35px;
+    border: 1px solid #ede4db;
+    border-radius: 30px;
+    color: #ede4db;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-open:hover {
+    background: #ede4db;
+    color: black;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    .nama {
+        font-size: 35px;
+    }
+    .wedding{
+        font-size: 10px;
+    }
+    .save{
+        font-size: 14px;
+        white-space: nowrap;
+        word-spacing: 85px; 
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="cover">
+    <div class="content">
+        
+        <p class="subtitle">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+        <p class="wedding">The Wedding Of</p>
+        
+        <h1 class="nama">Mrs.Nisa Mr.Oki</h1>
+        <p class="save">Save the Date</p>
+        <p class="dear">Dear</p>
+
+        <p class="guest" id="guestName">Tamu Undangan</p>
+
+        <!-- Ganti link di bawah dengan halaman undangan -->
+        <a href="https://wedding-nisa-oki.my.canva.site/" class="btn-open" target="_blank" onclick="openInvitation()">
+            Open Invitation
+        </a>
+    </div>
+</div>
+
+<div class=".foto-oval">
+  <!-- 1. Gambar latar / cover bingkai asli Anda -->
+  <img src="icover.png" alt="Cover Bingkai" class="gambar-bingkai">
+  
+  <!-- 2. Foto yang ingin dimasukkan ke dalam bingkai -->
+  <img src="foto.jpg" class="foto-oval">
+</div>
+<audio id="bgmusic" src="floating.mp3" preload="auto" loop></audio>
+
+    <script>
+            // Ambil nama tamu dari URL ?to=
+            const params = new URLSearchParams(window.location.search);
+            const guest = params.get("to");
+            
+            if(guest) {
+                document.getElementById("guestName").innerText=decodeURIComponent(guest.replace(/\+/g, " "));
+            }
+            
+            function openInvitation() {
+                const music = document.getElementById("bgmusic");
+                music.play().catch(err=> console.log("Autoplay blocked"));
+            }
+    </script>
+</body>
+</html>
